@@ -66,25 +66,25 @@ export default function ApplicationForm() {
     'Full Stack Development',
   ];
 
-  const handleInputChange = (e) => {
-    const { name, value, type, checked } = e.target;
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value, type } = e.target;
     setFormData({
       ...formData,
-      [name]: type === 'checkbox' ? checked : value
+      [name]: type === 'checkbox' ? (e.target as HTMLInputElement).checked : value
     });
   };
 
-  const handleQualificationSelect = (qualification) => {
+  const handleQualificationSelect = (qualification : string) => {
     setFormData({ ...formData, highestQualification: qualification });
     setShowQualificationDropdown(false);
   };
 
-  const handleCourseSelect = (course) => {
+  const handleCourseSelect = (course : string) => {
     setFormData({ ...formData, course: course });
     setShowCourseDropdown(false);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e : React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
     alert('Form submitted successfully!');
