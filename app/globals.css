@@ -1,0 +1,11 @@
+/* First keep your Tailwind directives */
+@tailwind base;
+@tailwind utilities;
+@tailwind utilities;
+
+/* Then add your application form CSS below */
+.form-container {
+  display: flex;
+  justify-content: center;
+  /* rest of the CSS... */
+}
